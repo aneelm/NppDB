@@ -1,0 +1,70 @@
+connection success?
+OCI runtime exec failed: exec failed: unable to start container process: exec: "export PGPASSWORD='sa'": executable file not found in $PATH: unknown
+
+Host=127.0.0.1;Port=53938;Database=db;Username=sa;Password=sa
+53938
+(2023-10-14T17:50:41.116422450Z The files belonging to this database system will be owned by user "postgres".
+2023-10-14T17:50:41.116473170Z This user must also own the server process.
+2023-10-14T17:50:41.116477180Z 
+2023-10-14T17:50:41.116479130Z The database cluster will be initialized with locale "en_US.utf8".
+2023-10-14T17:50:41.116480670Z The default database encoding has accordingly been set to "UTF8".
+2023-10-14T17:50:41.116482100Z The default text search configuration will be set to "english".
+2023-10-14T17:50:41.116483500Z 
+2023-10-14T17:50:41.116484790Z Data page checksums are disabled.
+2023-10-14T17:50:41.116527530Z 
+2023-10-14T17:50:41.116532620Z fixing permissions on existing directory /var/lib/postgresql/data ... ok
+2023-10-14T17:50:41.117847000Z creating subdirectories ... ok
+2023-10-14T17:50:41.117855480Z selecting dynamic shared memory implementation ... posix
+2023-10-14T17:50:41.124187123Z selecting default max_connections ... 100
+2023-10-14T17:50:41.132983902Z selecting default shared_buffers ... 128MB
+2023-10-14T17:50:41.138234791Z selecting default time zone ... Etc/UTC
+2023-10-14T17:50:41.138934861Z creating configuration files ... ok
+2023-10-14T17:50:41.201519451Z running bootstrap script ... ok
+2023-10-14T17:50:41.397215920Z performing post-bootstrap initialization ... ok
+2023-10-14T17:50:41.498571969Z syncing data to disk ... ok
+2023-10-14T17:50:41.498611669Z 
+2023-10-14T17:50:41.498615929Z 
+2023-10-14T17:50:41.498618379Z Success. You can now start the database server using:
+2023-10-14T17:50:41.498620369Z 
+2023-10-14T17:50:41.498621969Z     pg_ctl -D /var/lib/postgresql/data -l logfile start
+2023-10-14T17:50:41.498623639Z 
+2023-10-14T17:50:41.516560226Z waiting for server to start....2023-10-14 17:50:41.516 UTC [48] LOG:  starting PostgreSQL 15.1 (Debian 15.1-1.pgdg110+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 10.2.1-6) 10.2.1 20210110, 64-bit
+2023-10-14T17:50:41.516572806Z 2023-10-14 17:50:41.516 UTC [48] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2023-10-14T17:50:41.517308146Z 2023-10-14 17:50:41.517 UTC [51] LOG:  database system was shut down at 2023-10-14 17:50:41 UTC
+2023-10-14T17:50:41.518280736Z 2023-10-14 17:50:41.518 UTC [48] LOG:  database system is ready to accept connections
+2023-10-14T17:50:41.609508552Z  done
+2023-10-14T17:50:41.609521462Z server started
+2023-10-14T17:50:41.659930567Z CREATE DATABASE
+2023-10-14T17:50:41.660289549Z 
+2023-10-14T17:50:41.660365779Z 
+2023-10-14T17:50:41.660390249Z /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+2023-10-14T17:50:41.660394019Z 
+2023-10-14T17:50:41.660945938Z waiting for server to shut down....2023-10-14 17:50:41.660 UTC [48] LOG:  received fast shutdown request
+2023-10-14T17:50:41.660952938Z 2023-10-14 17:50:41.660 UTC [48] LOG:  aborting any active transactions
+2023-10-14T17:50:41.661621218Z 2023-10-14 17:50:41.661 UTC [48] LOG:  background worker "logical replication launcher" (PID 54) exited with exit code 1
+2023-10-14T17:50:41.661641349Z 2023-10-14 17:50:41.661 UTC [49] LOG:  shutting down
+2023-10-14T17:50:41.661681268Z 2023-10-14 17:50:41.661 UTC [49] LOG:  checkpoint starting: shutdown immediate
+2023-10-14T17:50:41.665033537Z 2023-10-14 17:50:41.664 UTC [49] LOG:  checkpoint complete: wrote 918 buffers (5.6%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.004 s, sync=0.001 s, total=0.004 s; sync files=0, longest=0.000 s, average=0.000 s; distance=4216 kB, estimate=4216 kB
+2023-10-14T17:50:41.667152987Z 2023-10-14 17:50:41.667 UTC [48] LOG:  database system is shut down
+2023-10-14T17:50:41.761166397Z  done
+2023-10-14T17:50:41.761184967Z server stopped
+2023-10-14T17:50:41.761737127Z 
+2023-10-14T17:50:41.761744257Z PostgreSQL init process complete; ready for start up.
+2023-10-14T17:50:41.761746107Z 
+, 2023-10-14T17:50:41.498568059Z initdb: warning: enabling "trust" authentication for local connections
+2023-10-14T17:50:41.498589609Z initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+2023-10-14T17:50:41.769732025Z 2023-10-14 17:50:41.769 UTC [1] LOG:  starting PostgreSQL 15.1 (Debian 15.1-1.pgdg110+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 10.2.1-6) 10.2.1 20210110, 64-bit
+2023-10-14T17:50:41.769784285Z 2023-10-14 17:50:41.769 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2023-10-14T17:50:41.769792405Z 2023-10-14 17:50:41.769 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+2023-10-14T17:50:41.769850255Z 2023-10-14 17:50:41.769 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2023-10-14T17:50:41.770639355Z 2023-10-14 17:50:41.770 UTC [64] LOG:  database system was shut down at 2023-10-14 17:50:41 UTC
+2023-10-14T17:50:41.771628785Z 2023-10-14 17:50:41.771 UTC [1] LOG:  database system is ready to accept connections
+)
+System.Data.Odbc.OdbcException (0x80131937): ERROR [42P01] ERROR: relation "public.dept" does not exist;
+Error while executing the query
+   at System.Data.Odbc.OdbcConnection.HandleError(OdbcHandle hrHandle, RetCode retcode)
+   at System.Data.Odbc.OdbcCommand.ExecuteReaderObject(CommandBehavior behavior, String method, Boolean needReader, Object[] methodArguments, SQL_API odbcApiMethod)
+   at System.Data.Odbc.OdbcCommand.ExecuteReaderObject(CommandBehavior behavior, String method, Boolean needReader)
+   at System.Data.Odbc.OdbcCommand.ExecuteReader(CommandBehavior behavior)
+   at NppDB.PostgreSQL.PostgreSQLExecutor.<>c__DisplayClass3_0.<Execute>b__0() in C:\Users\Andres\Documents\bcS\NppDB\NppDB.PostgreSQL\PostgreSQLExecutor.cs:line 79
+0

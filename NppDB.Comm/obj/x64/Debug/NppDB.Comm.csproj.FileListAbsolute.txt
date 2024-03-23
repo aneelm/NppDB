@@ -1,0 +1,6 @@
+C:\Users\Andres\Documents\bcS\NppDB\bin\x64\Debug\NppDB\NppDB.Comm.dll
+C:\Users\Andres\Documents\bcS\NppDB\bin\x64\Debug\NppDB\NppDB.Comm.pdb
+C:\Users\Andres\Documents\bcS\NppDB\NppDB.Comm\obj\x64\Debug\NppDB.Comm.csproj.AssemblyReference.cache
+C:\Users\Andres\Documents\bcS\NppDB\NppDB.Comm\obj\x64\Debug\NppDB.Comm.csproj.CoreCompileInputs.cache
+C:\Users\Andres\Documents\bcS\NppDB\NppDB.Comm\obj\x64\Debug\NppDB.Comm.dll
+C:\Users\Andres\Documents\bcS\NppDB\NppDB.Comm\obj\x64\Debug\NppDB.Comm.pdb

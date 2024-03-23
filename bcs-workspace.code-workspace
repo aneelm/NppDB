@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "NppDB.Comm"
+		},
+		{
+			"path": "NppDB.Core"
+		},
+		{
+			"path": "NppDB.MSAccess"
+		},
+		{
+			"path": "NppDB.Plugin"
+		}
+	],
+	"settings": {}
+}

@@ -1,0 +1,13 @@
+C:\Users\Andres\Documents\bcS\NppDB\bin\x64\Debug\NppDB\NppDB.Core.dll
+C:\Users\Andres\Documents\bcS\NppDB\bin\x64\Debug\NppDB\NppDB.Core.pdb
+C:\Users\Andres\Documents\bcS\NppDB\NppDB.Core\obj\x64\Debug\NppDB.Core.csproj.AssemblyReference.cache
+C:\Users\Andres\Documents\bcS\NppDB\NppDB.Core\obj\x64\Debug\NppDB.Core.FrmDatabaseExplore.resources
+C:\Users\Andres\Documents\bcS\NppDB\NppDB.Core\obj\x64\Debug\NppDB.Core.frmOption.resources
+C:\Users\Andres\Documents\bcS\NppDB\NppDB.Core\obj\x64\Debug\NppDB.Core.frmSelectDbType.resources
+C:\Users\Andres\Documents\bcS\NppDB\NppDB.Core\obj\x64\Debug\NppDB.Core.Properties.Resources.resources
+C:\Users\Andres\Documents\bcS\NppDB\NppDB.Core\obj\x64\Debug\NppDB.Core.SQLResult.resources
+C:\Users\Andres\Documents\bcS\NppDB\NppDB.Core\obj\x64\Debug\NppDB.Core.frmAbout.resources
+C:\Users\Andres\Documents\bcS\NppDB\NppDB.Core\obj\x64\Debug\NppDB.Core.csproj.GenerateResource.cache
+C:\Users\Andres\Documents\bcS\NppDB\NppDB.Core\obj\x64\Debug\NppDB.Core.csproj.CoreCompileInputs.cache
+C:\Users\Andres\Documents\bcS\NppDB\NppDB.Core\obj\x64\Debug\NppDB.Core.dll
+C:\Users\Andres\Documents\bcS\NppDB\NppDB.Core\obj\x64\Debug\NppDB.Core.pdb

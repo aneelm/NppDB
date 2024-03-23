@@ -1,0 +1,131 @@
+Query: SELECT * FROM hotell where nimi = "Viru";
+Expected errors: DOUBLE_QUOTES
+Errors present: DOUBLE_QUOTES
+
+Query: SELECT DISTINCT nimi FROM hotell GROUP BY NIMI;
+Expected errors: DISTINCT_KEYWORD_WITH_GROUP_BY_CLAUSE
+Errors present: DISTINCT_KEYWORD_WITH_GROUP_BY_CLAUSE
+
+Query: SELECT * FROM hotell h JOIN reserveerimine r ON r.hotelli_nr = h.hotelli_nr JOIN külaline k ON k.külalise_nr = r.külalise_nr;
+Expected errors: SELECT_ALL_WITH_MULTIPLE_JOINS
+Errors present: SELECT_ALL_WITH_MULTIPLE_JOINS
+
+Query: SELECT * FROM Ruum UNION SELECT * FROM Ruum_koopia;
+Expected errors: SELECT_ALL_IN_UNION_STATEMENT
+Errors present: SELECT_ALL_IN_UNION_STATEMENT
+
+Query: SELECT Hotell.hotelli_nr, nimi, Count(Reserveerimine.hotelli_nr) AS arv FROM Reserveerimine JOIN Hotell ON Hotell.hotelli_nr = Reserveerimine.hotelli_nr;
+Expected errors: AGGREGATE_FUNCTION_WITHOUT_GROUP_BY_CLAUSE
+Errors present: AGGREGATE_FUNCTION_WITHOUT_GROUP_BY_CLAUSE
+
+Query: SELECT Hotell.hotelli_nr, nimi, Count(Reserveerimine.hotelli_nr) AS arv FROM Reserveerimine LEFT JOIN Hotell ON Hotell.hotelli_nr = Reserveerimine.hotelli_nr GROUP BY Hotell.hotelli_nr, nimi;
+Expected errors: COUNT_FUNCTION_WITH_OUTER_JOIN
+Errors present: COUNT_FUNCTION_WITH_OUTER_JOIN
+
+Query: SELECT hotelli_nr, ruumi_nr, Count(külalise_nr) as külalineCount from Reserveerimine group by hotelli_nr;
+Expected errors: MISSING_COLUMN_IN_GROUP_BY_CLAUSE
+Errors present: MISSING_COLUMN_IN_GROUP_BY_CLAUSE
+
+Query: INSERT INTO Hotell VALUES (999, 'TOP', 'Tallinn');
+Expected errors: INSERT_STATEMENT_WITHOUT_COLUMN_NAMES
+Errors present: INSERT_STATEMENT_WITHOUT_COLUMN_NAMES
+
+Query: INSERT INTO Külaline_koopia SELECT * FROM Külaline;
+Expected errors: INSERT_STATEMENT_WITHOUT_COLUMN_NAMES, SELECT_ALL_IN_INSERT_STATEMENT
+Errors present: INSERT_STATEMENT_WITHOUT_COLUMN_NAMES, SELECT_ALL_IN_INSERT_STATEMENT
+
+Query: SELECT nimi FROM Külaline ORDER BY 1
+Expected errors: ORDERING_BY_ORDINAL
+Errors present: ORDERING_BY_ORDINAL
+
+Query: SELECT ruumi_tüüp, hind FROM ruum GROUP BY ruumi_tüüp, hind HAVING hind > 10;
+Expected errors: HAVING_CLAUSE_WITHOUT_AGGREGATE_FUNCTION
+Errors present: HAVING_CLAUSE_WITHOUT_AGGREGATE_FUNCTION
+
+Query: SELECT ruumi_tüüp, sum(hind) AS summa FROM ruum GROUP BY ruumi_tüüp, hind HAVING (linn='TALLINN' OR nimi='Tartu' AND hotelli_nr=2);
+Expected errors: AND_OR_MISSING_PARENTHESES_IN_WHERE_CLAUSE, HAVING_CLAUSE_WITHOUT_AGGREGATE_FUNCTION
+Errors present: AND_OR_MISSING_PARENTHESES_IN_WHERE_CLAUSE, HAVING_CLAUSE_WITHOUT_AGGREGATE_FUNCTION
+
+Query: SELECT * FROM Hotell HAVING linn = 'Tallinn' OR 'Tartu' OR hind BETWEEN 8 AND 9;
+Expected errors: HAVING_CLAUSE_WITHOUT_AGGREGATE_FUNCTION, NOT_LOGICAL_OPERAND
+Errors present: HAVING_CLAUSE_WITHOUT_AGGREGATE_FUNCTION, NOT_LOGICAL_OPERAND
+
+Query: SELECT hotelli_nr, Count(*) AS arv FROM Reserveerimine GROUP BY Count(*);
+Expected errors: AGGREGATE_FUNCTION_IN_GROUP_BY_CLAUSE
+Errors present: AGGREGATE_FUNCTION_IN_GROUP_BY_CLAUSE
+
+Query: SELECT linn, nimi as linn AS arv FROM Hotell;
+Expected errors: DUPLICATE_SELECTED_COLUMN_IN_SELECT_CLAUSE
+Errors present: DUPLICATE_SELECTED_COLUMN_IN_SELECT_CLAUSE
+
+Query: SELECT * FROM Hotell WHERE linn = 'Tallinn' OR 'Tartu' OR hind BETWEEN 8 AND 9;
+Expected errors: NOT_LOGICAL_OPERAND
+Errors present: NOT_LOGICAL_OPERAND
+
+Query: SELECT ruumi_tüüp, sum(hind) as summa FROM ruum WHERE (linn='TALLINN' OR nimi='Tartu' AND hotelli_nr=2) GROUP BY ruumi_tüüp, hind;
+Expected errors: AND_OR_MISSING_PARENTHESES_IN_WHERE_CLAUSE
+Errors present: AND_OR_MISSING_PARENTHESES_IN_WHERE_CLAUSE
+
+Query: SELECT hotelli_nr, Count(*) AS arv FROM Reserveerimine WHERE Count(*) > 1;
+Expected errors: AGGREGATE_FUNCTION_IN_WHERE_CLAUSE
+Errors present: AGGREGATE_FUNCTION_IN_WHERE_CLAUSE
+
+Query: SELECT * from Hotell where nimi = 'nimi' and where linn='Tallinn';
+Expected errors: MULTIPLE_WHERE_USED
+Errors present: MULTIPLE_WHERE_USED
+
+Query: SELECT nimi, (SELECT max(hind) as maksimum FROM ruum where ruum.hotelli_nr = Hotell.hotelli_nr) from Hotell where nimi = 'Viru' and linn='Tallinn';
+Expected errors: 
+Errors present: 
+
+Query: SELECT nimi, 'ilus', linn FROM Hotell;
+Expected errors: MISSING_COLUMN_ALIAS_IN_SELECT_CLAUSE
+Errors present: MISSING_COLUMN_ALIAS_IN_SELECT_CLAUSE
+
+Query: SELECT nimi, (SELECT 'ilus' FROM ruum where ruum.hotelli_nr = Hotell.hotelli_nr) from Hotell where nimi = 'Viru' and linn='Tallinn' and ruumi_nr in (SELECT 1 FROM ruum where ruum.hotelli_nr = Hotell.hotelli_nr);
+Expected errors: MISSING_COLUMN_ALIAS_IN_SELECT_CLAUSE, MISSING_COLUMN_ALIAS_IN_SELECT_CLAUSE
+Errors present: MISSING_COLUMN_ALIAS_IN_SELECT_CLAUSE, MISSING_COLUMN_ALIAS_IN_SELECT_CLAUSE
+
+Query: SELECT Sum(1) AS arv FROM Hotell
+Expected errors: USE_COUNT_FUNCTION
+Errors present: USE_COUNT_FUNCTION
+
+Query: SELECT * FROM Hotell WHERE
+Expected errors: MISSING_EXPRESSION_IN_WHERE_CLAUSE
+Errors present: MISSING_EXPRESSION_IN_WHERE_CLAUSE
+
+Query: SELECT ruumi_tüüp, hind FROM ruum GROUP BY ruumi_tüüp, hind HAVING;
+Expected errors: HAVING_CLAUSE_WITHOUT_AGGREGATE_FUNCTION, MISSING_EXPRESSION_IN_HAVING_CLAUSE
+Errors present: HAVING_CLAUSE_WITHOUT_AGGREGATE_FUNCTION, MISSING_EXPRESSION_IN_HAVING_CLAUSE
+
+Query: SELECT * FROM Hotell WHERE hotelli_nr_1 IN (SELECT hotelli_nr_2 FROM Reserveerimine ORDER BY hotelli_nr_3);
+Expected errors: ORDER_BY_CLAUSE_IN_SUB_QUERY_WITHOUT_LIMIT
+Errors present: ORDER_BY_CLAUSE_IN_SUB_QUERY_WITHOUT_LIMIT
+
+Query: SELECT * FROM Ruum WHERE ruumi_nr IN (SELECT * FROM Reserveerimine);
+Expected errors: SELECT_ALL_IN_SUB_QUERY
+Errors present: SELECT_ALL_IN_SUB_QUERY
+
+Query: SELECT * FROM Ruum WHERE (hotelli_nr, ruumi_nr, id) IN (SELECT hotelli_nr, ruumi_nr FROM Reserveerimine);
+Expected errors: NOT_LOGICAL_OPERAND, SUBQUERY_COLUMN_COUNT_MISMATCH
+Errors present: NOT_LOGICAL_OPERAND, SUBQUERY_COLUMN_COUNT_MISMATCH
+
+Query: SELECT * FROM Hotell WHERE linn LIKE '%linn';
+Expected errors: 
+Errors present: 
+
+Query: SELECT * FROM Hotell WHERE linn LIKE 'Tallinn';
+Expected errors: MISSING_WILDCARDS_IN_LIKE_EXPRESSION
+Errors present: MISSING_WILDCARDS_IN_LIKE_EXPRESSION
+
+Query: SELECT * FROM Hotell WHERE linn SIMILAR TO 'b|d';
+Expected errors: 
+Errors present: 
+
+Query: SELECT * FROM Hotell WHERE linn SIMILAR TO 'bd';
+Expected errors: MISSING_WILDCARDS_IN_LIKE_EXPRESSION
+Errors present: MISSING_WILDCARDS_IN_LIKE_EXPRESSION
+
+Query: SELECT * FROM Hotell WHERE linn SIMILAR TO nimi;
+Expected errors: 
+Errors present: COLUMN_LIKE_COLUMN

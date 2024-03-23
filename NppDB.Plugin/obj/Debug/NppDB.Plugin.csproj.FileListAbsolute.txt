@@ -1,0 +1,6 @@
+C:\Users\Andres\Documents\bcS\NppDB\NppDB.Plugin\obj\Debug\NppDB.Plugin.csproj.AssemblyReference.cache
+C:\Users\Andres\Documents\bcS\NppDB\NppDB.Plugin\obj\Debug\NppDB.Properties.Resources.resources
+C:\Users\Andres\Documents\bcS\NppDB\NppDB.Plugin\obj\Debug\NppDB.Plugin.csproj.GenerateResource.cache
+C:\Users\Andres\Documents\bcS\NppDB\NppDB.Plugin\obj\Debug\NppDB.Plugin.csproj.CoreCompileInputs.cache
+C:\Users\Andres\Documents\bcS\NppDB\NppDB.Plugin\obj\Debug\NppDB.Plugin.dll
+C:\Users\Andres\Documents\bcS\NppDB\NppDB.Plugin\obj\Debug\NppDB.Plugin.pdb
